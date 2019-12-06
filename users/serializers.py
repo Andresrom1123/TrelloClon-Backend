@@ -17,9 +17,9 @@ class UserSerializer(serializers.ModelSerializer):
         try:
             msg = EmailMessage(
                 'Asunto',
-                '<h1>Hola mundo</h1>',
-                'Andres <from@example.com>',
-                ['amclres@gmail.com']
+                '<h1>Que onda compa chavaa!</h1>',
+                'Salvador <from@example.com>',
+                [user.email]
             )
             msg.content_subtype = 'html'
             msg.send()
