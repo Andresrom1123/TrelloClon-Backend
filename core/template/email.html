@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="text-center p-4 border-bottom">
+      <img
+        src="https://d2k1ftgv7pobq7.cloudfront.net/meta/c/p/res/images/trello-header-logos/76ceb1faa939ede03abacb6efacdde16/trello-logo-blue.svg"
+        alt="" width="200" />
+    </div>
+    <div class="text-center">
+      <img
+        src="https://id-mail-assets.prod.atl-paas.net/template/aid_signup_welcome_verify_cobranded_adg/trello-people.png"
+        alt="" />
+    </div>
+    <div>
+      <h1 class="mb-2">¡Ya casi estás ahí!</h1>
+      <p class="text-muted">
+        Hola {{ User.email }}
+      </p>
+      <p class="text-muted">
+        Para terminar de configurar su cuenta y comenzar a usar Trello, confirme que tenemos el correo electrónico
+        correcto para usted
+      </p>
+      <a href="http://localhost:3000/login" target="_blank">
+        <button type="button" class="btn btn-primary">
+          Verifica tu correo
+        </button>
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
