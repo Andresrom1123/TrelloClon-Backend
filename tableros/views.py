@@ -1,5 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
+
 from rest_framework.response import Response
 
 from tableros.serializers import TabledSerializer, CreateTabledSerializer
@@ -23,6 +24,12 @@ class TabledViewSet(viewsets.ModelViewSet):
     """
     queryset = Tabled.objects.all()
     serializer_class = TabledSerializer
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Tabled.objects.filter(dueno=self.request.user)
+        else:
+            return []
 
     def get_serializer_class(self):
         # retrieve
@@ -52,7 +59,7 @@ class TabledViewSet(viewsets.ModelViewSet):
         tableros = self.get_object()  # => tableros.objects.get(id=1) #Obtengo el tablero del id del usuario
         idusers = request.data.get('users') # Obtengo el id del usuario que mando desde el front
         user = User.objects.get(id=idusers) # Busco el usuario con el id y lo asigno a una variable
-        if tableros.favorite.filter(id=user.id).exists(): # Si el usuario ya este como favorito en el tablero
+        if tableros.favorite.filter(id=usoer.id).exists(): # Si el usuario ya este como favorito en el tablero
             tableros.favorite.remove(user) # Lo elimino en caso que ya este como favorito
         else:
             tableros.favorite.add(user) # Sino esta lo agrego
